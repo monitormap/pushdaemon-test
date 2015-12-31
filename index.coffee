@@ -4,14 +4,10 @@ config = require('./config')
 options =
 	transports: ['websocket']
 	path: '/ws'
-	reconnection: true
+	reconnection: false
 	connect_timeout: 2000
 
 socket = io.connect(config.url_socket,options)
-socket.on('connect_error',(data)->
-	console.log(data)
-	socket.disconnect()
-)
 console.log('Init')
 obj =
 	name:"TEST-Dummy",
